@@ -1,0 +1,844 @@
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Undangan Aqiqah
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #87CEEB 0%, #4A90E2 50%, #2E5BBA 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(4) {
+            bottom: 10%;
+            right: 20%;
+            animation-delay: 1s;
+        }
+
+        .shape:nth-child(5) {
+            top: 50%;
+            left: 5%;
+            animation-delay: 3s;
+        }
+
+        .shape:nth-child(6) {
+            top: 60%;
+            right: 5%;
+            animation-delay: 5s;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .invitation-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 1s ease-out;
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4A90E2, #87CEEB);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .bismillah {
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+            position: relative;
+        }
+
+        .title::before {
+            content: '👶🏻';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            animation: bounce 2s infinite;
+        }
+
+        .title::after {
+            content: '♂️';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            animation: bounce 2s infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.3);
+            }
+
+            to {
+                text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .baby-info {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(135, 206, 235, 0.1), rgba(74, 144, 226, 0.1));
+            border-radius: 20px;
+            border: 2px solid rgba(135, 206, 235, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .baby-info::before {
+            content: '🚗';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 20px;
+            opacity: 0.6;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .baby-info::after {
+            content: '⚽';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 20px;
+            opacity: 0.6;
+            animation: float 4s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+
+        .baby-photo {
+            flex-shrink: 0;
+            width: 254px;
+            height: 272px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(46, 91, 186, 0.3);
+            border: 3px solid #4A90E2;
+            position: relative;
+        }
+
+        .baby-photo::before {
+            content: '👑';
+            position: absolute;
+            top: -20px;
+            left: 55%;
+            transform: translateX(-50%);
+            font-size: 25px;
+            z-index: 2;
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+        }
+
+        .baby-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .baby-text {
+            max-width: 500px;
+            text-align: left;
+            position: relative;
+        }
+
+        .baby-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 36px;
+            font-weight: 600;
+            color: #2E5BBA;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite;
+            position: relative;
+        }
+
+        
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); }
+            50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+        }
+
+        @keyframes bounce {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .baby-details {
+            color: #4A90E2;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .parents-info {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .parents-title {
+            color: #2E5BBA;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .parents-names {
+            font-size: 20px;
+            color: #4A90E2;
+            font-weight: 500;
+        }
+
+        .event-details {
+            background: linear-gradient(135deg, #4A90E2, #87CEEB);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: slide 3s infinite;
+        }
+
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slide {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .event-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .event-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+        }
+
+        
+
+        .info-item:last-child::before {
+            content: '⏰';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 16px;
+            animation: wiggle 2s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        .info-item i {
+            font-size: 20px;
+        }
+
+        .address {
+            background: rgba(135, 206, 235, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 1px solid rgba(135, 206, 235, 0.3);
+            position: relative;
+        }
+
+        .address::before {
+            content: '🏠';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 25px;
+            animation: bounce 3s infinite;
+        }
+
+        .address::after {
+            content: '🎈';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 25px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .address-title {
+            color: #2E5BBA;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .address-text {
+            color: #4A90E2;
+            line-height: 1.6;
+        }
+
+        .calendar-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #4A90E2, #2E5BBA);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+            position: relative;
+        }
+
+       
+
+        .calendar-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
+        }
+
+        .ornament {
+            text-align: center;
+            margin: 30px 0;
+            color: #87CEEB;
+            font-size: 24px;
+            position: relative;
+        }
+
+        .ornament::before {
+            content: '🎊';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            animation: spin 4s linear infinite;
+        }
+
+        .ornament::after {
+            content: '🎉';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            animation: spin 4s linear infinite reverse;
+        }
+
+        @keyframes spin {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+
+        .closing {
+            text-align: center;
+            color: #4A90E2;
+            font-style: italic;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(135, 206, 235, 0.05);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .closing::before {
+            content: '🤲';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 20px;
+            opacity: 0.6;
+            animation: glow-soft 3s ease-in-out infinite;
+        }
+
+        .closing::after {
+            content: '🌟';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 20px;
+            opacity: 0.6;
+            animation: glow-soft 3s ease-in-out infinite;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes glow-soft {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #87CEEB, #4A90E2);
+            color: white;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '💙';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 20px;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        .footer::after {
+            content: '🌙';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .title {
+                font-size: 36px;
+            }
+
+            .title::before,
+            .title::after {
+                display: none;
+            }
+
+            .baby-name {
+                font-size: 28px;
+            }
+
+            .baby-name::before {
+                left: -30px;
+                font-size: 16px;
+            }
+
+            .content {
+                padding: 30px 25px;
+            }
+
+            .event-info {
+                grid-template-columns: 1fr;
+            }
+
+            .baby-info {
+                flex-direction: column;
+                padding: 20px 15px;
+            }
+
+            .baby-photo {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 20px;
+            }
+
+            .baby-text {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .calendar-button::before {
+                left: -20px;
+                font-size: 16px;
+            }
+        }
+  </style>
+ </head>
+ <body>
+  <div class="floating-shapes">
+   <div class="shape">🌙</div>
+   <div class="shape">⭐</div>
+   <div class="shape">✨</div>
+   <div class="shape">🤲</div>
+   <div class="shape">🚀</div>
+   <div class="shape">🦁</div>
+  </div>
+  <div class="container">
+   <div class="invitation-card">
+    <div class="header">
+     <div class="bismillah">
+      بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
+     </div>
+     <h1 class="title">
+      Undangan Aqiqah
+     </h1>
+     <p class="subtitle">
+      Dengan memanjatkan puji syukur ke hadirat Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara(i) untuk menghadiri acara aqiqah putra keponakan kami
+     </p>
+    </div>
+    <div class="content">
+     <div class="baby-info">
+      <div class="baby-photo">
+       <img alt="foto" height="500" src="friz.jpeg" width="700"/>
+      </div>
+      <div class="baby-text">
+       <h2 class="baby-name">
+        ℱ𝒶𝓇𝒾𝓏 ℛ𝒶𝓂𝒶𝒹𝒽𝒶𝓃
+       </h2>
+       <div class="baby-details">
+        <p>
+         <strong>
+          Lahir pada:
+         </strong>
+         Kamis, 21 Maret 2024
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="parents-info">
+      <div class="parents-title">
+       Putra dari pasangan
+      </div>
+      <div class="parents-names">
+       𝓐𝓰𝓾𝓼𝓽𝓪𝓷𝓰 (𝒜𝓁𝒶𝓃𝑔 ) &amp; 𝓢𝓪𝓯𝓲𝓻𝓪 𝓟𝓾𝓽𝓻𝓲 (ℱℯ𝓇𝒶)
+      </div>
+     </div>
+     <div class="ornament">
+      ❅ ❅ ❅
+     </div>
+     <div class="event-details">
+      <h3 class="event-title">
+       Detail Acara Aqiqah
+      </h3>
+      <div class="event-info">
+       <div class="info-item">
+        <i class="fas fa-calendar-alt">
+        </i>
+        <div>
+         <div>
+          <strong>
+           Kamis
+          </strong>
+         </div>
+         <div>
+          10 Juli 2025
+         </div>
+        </div>
+       </div>
+       <div class="info-item">
+        <i class="fas fa-clock">
+        </i>
+        <div>
+         <div>
+          <strong>
+           Pukul
+          </strong>
+         </div>
+         <div>
+          09:00 WITA - selesai
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="address">
+      <h4 class="address-title">
+       📍 Lokasi Acara
+      </h4>
+      <p class="address-text">
+       Rumah Keluarga Besar Agustang atau Patiama
+       <br/>
+       Pangempange
+       <br/>
+       Dusun Awo
+       <br/>
+       Jolle
+      </p>
+      <br/>
+      <a class="calendar-button" href="#">
+       <i class="fas fa-calendar-plus">
+       </i>
+       Simpan Tanggal
+      </a>
+     </div>
+     <div class="ornament">
+      ❅ ❅ ❅
+     </div>
+     <div class="closing">
+      <p>
+        وَاللّٰهُ اَخْرَجَكُمْ مِّنْۢ بُطُوْنِ اُمَّهٰتِكُمْ لَا تَعْلَمُوْنَ شَيْـًٔاۙ وَّجَعَلَ لَكُمُ السَّمْعَ وَالْاَبْصَارَ وَالْاَفْـِٕدَةَۙ لَعَلَّكُمْ تَشْكُرُوْنَ
+      </p>
+        <p>
+       "Dan Allah telah mengeluarkan kamu dari perut ibumu dalam keadaan tidak mengetahui sesuatupun, dan Dia memberi kamu pendengaran, penglihatan dan hati, agar kamu bersyukur."
+      </p>
+      <p>
+       <strong>
+        (QS. An-Nahl: 78)
+       </strong>
+      </p>
+      <br/>
+      <p>
+       Kehadiran dan doa restu dari Bapak/Ibu/Saudara/i sekalian
+       <br/>
+       merupakan kehormatan bagi kami.
+      </p>
+      <p>
+       <strong>
+        Jazakumullahu khairan
+       </strong>
+      </p>
+     </div>
+    </div>
+    <div class="footer">
+     <p>
+      𝐖𝐚𝐬𝐬𝐚𝐥𝐚𝐦𝐮'𝐚𝐥𝐚𝐢𝐤𝐮𝐦 𝐖𝐚𝐫𝐚𝐡𝐦𝐚𝐭𝐮𝐥𝐥𝐚𝐡𝐢 𝐖𝐚𝐛𝐚𝐫𝐚𝐤𝐚𝐭𝐮𝐡
+     </p>
+     <p style="margin-top: 10px; font-size: 14px;">
+      𝐤𝐞𝐥𝐮𝐚𝐫𝐠𝐚 𝐛𝐞𝐬𝐚𝐫 𝐀𝐠𝐮𝐬𝐭𝐚𝐧𝐠  &amp; 𝐒𝐚𝐟𝐢𝐫𝐚 𝐏𝐮𝐭𝐫𝐢
+     </p>
+    </div>
+   </div>
+  </div>
+  <script>
+   // Animasi interaktif
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animasi reveal saat scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px',
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Animasi floating untuk elemen dekoratif
+            const shapes = document.querySelectorAll('.shape');
+            shapes.forEach((shape, index) => {
+                shape.style.fontSize = Math.random() * 20 + 20 + 'px';
+                shape.style.animationDelay = Math.random() * 6 + 's';
+            });
+
+            // Efek hover untuk card
+            const card = document.querySelector('.invitation-card');
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-5px)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
+
+            // Animasi untuk info items
+            const infoItems = document.querySelectorAll('.info-item');
+            infoItems.forEach((item, index) => {
+                item.style.animationDelay = index * 0.2 + 's';
+            });
+        });
+
+        // Fungsi untuk tombol
+        document.querySelector('.calendar-button').addEventListener('click', function (e) {
+            e.preventDefault();
+            alert('Fitur kalender akan menyimpan tanggal acara ke kalender Anda');
+        });
+  </script>
+ </body>
+</html>
